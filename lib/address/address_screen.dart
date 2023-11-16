@@ -10,7 +10,9 @@ import 'package:flutterassignment/model/address_model.dart';
 import 'package:flutterassignment/utils/utility.dart';
 import 'package:flutterassignment/widgets/giga_app_bar.dart';
 import 'package:flutterassignment/widgets/giga_button.dart';
+import 'package:flutterassignment/widgets/giga_confetti_bottom_sheet.dart';
 import 'package:flutterassignment/widgets/giga_input_field.dart';
+import 'package:go_router/go_router.dart';
 
 import '../constants/colors.dart';
 
@@ -73,6 +75,7 @@ class _AddressScreenState extends State<AddressScreen> with FormMixin {
                     const SizedBox(height: 10),
                     GigaInputField(
                       hintText: "Country",
+                      readOnly: true,
                       validator: Utility.validateString(),
                       controller: _countryController,
                       suffixIcon: const Icon(
@@ -161,6 +164,29 @@ class _AddressScreenState extends State<AddressScreen> with FormMixin {
                       );
                       if (kDebugMode) {
                         print(address.toString());
+                        showModalBottomSheet<Widget>(
+                          isScrollControlled: true,
+                          context: context,
+                          isDismissible: true,
+                          enableDrag: true,
+                          builder: (context) {
+                            return GigaConfettiBottomSheet(
+                              address: address,
+                              icon: Images.locationPin,
+                              header: "",
+                              title: "Well done!",
+                              subtitle: "Here are your details:",
+                              onButtonClicked: () {
+                                context.pop();
+                              },
+                            );
+                          },
+                          shape: const RoundedRectangleBorder(
+                            borderRadius: BorderRadius.vertical(
+                              top: Radius.circular(16.0),
+                            ),
+                          ),
+                        );
                       }
                     }),
                     text: 'Save'

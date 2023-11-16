@@ -5,33 +5,34 @@ class GigaInputField extends StatelessWidget {
   final String hintText;
   final TextEditingController controller;
   final TextInputType keyboardType;
-  final bool obscureText;
   final Icon? suffixIcon;
   final String? Function(String? input)? validator;
   final Function()? onClickTextField;
   final Function(String)? onTextChanged;
-  final AutovalidateMode? autovalidateMode;
+  final AutovalidateMode? autoValidateMode;
+  final bool readOnly;
+
 
   const GigaInputField({
     Key? key,
     required this.hintText,
     required this.controller,
     this.keyboardType = TextInputType.text,
-    this.obscureText = false,
+    this.readOnly = false,
     this.suffixIcon,
     this.onClickTextField,
     this.validator,
     this.onTextChanged,
-    this.autovalidateMode
+    this.autoValidateMode
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      autovalidateMode: autovalidateMode,
+      autovalidateMode: autoValidateMode,
       controller: controller,
       keyboardType: keyboardType,
-      obscureText: obscureText,
+      readOnly: readOnly,
       validator: validator,
       onTap: onClickTextField,
       onChanged: onTextChanged,

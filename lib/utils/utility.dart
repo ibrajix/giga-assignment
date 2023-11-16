@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class Utility {
   static String? Function(String?) validateString(
@@ -47,4 +48,44 @@ mixin FormMixin<T extends StatefulWidget> on State<T> {
       orElse?.call();
     }
   }
+}
+
+mixin BaseBottomSheetMixin {
+  Widget build(BuildContext context);
+
+  Future<R?> show<R>(
+      BuildContext context, {
+        bool isDismissible = true,
+        bool enableDrag = true,
+      }) {
+    return showModalBottomSheet<R>(
+      isScrollControlled: true,
+      context: context,
+      isDismissible: isDismissible,
+      enableDrag: enableDrag,
+      builder: (context) => build(context),
+      shape: const RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(16.0),
+        ),
+      ),
+    );
+  }
+}
+
+
+extension ContextExtension on BuildContext {
+  double getHeight([double factor = 1]) {
+    assert(factor != 0);
+    return MediaQuery.of(this).size.height * factor;
+  }
+
+  double getWidth([double factor = 1]) {
+    assert(factor != 0);
+    return MediaQuery.of(this).size.width * factor;
+  }
+
+  double get height => getHeight();
+  double get width => getWidth();
+
 }

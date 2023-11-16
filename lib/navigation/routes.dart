@@ -16,16 +16,6 @@ class Navigation {
               state: state,
               child: const HomeScreen(),
             ),
-            //If user has saved address, redirect to done screen
-            /*redirect: (context, state) {
-              var hasSeenIntro = LocalPreference.hasSeenIntroScreen();
-              if(hasSeenIntro == true){
-                return Destination.loginRegister;
-              }
-              else{
-                return Destination.welcome;
-              }
-            }*/
         ),
         GoRoute(
             path: Destination.addAddress,
@@ -35,15 +25,6 @@ class Navigation {
               state: state,
               child: const AddressScreen(),
             ),
-            /*redirect: (context, state) {
-              var isLoggedIn = LocalPreference.isLoggedIn();
-              if(isLoggedIn == true){
-                return Destination.bottomNav;
-              }
-              else{
-                return Destination.loginRegister;
-              }
-            }*/
         ),
       ],
   );
