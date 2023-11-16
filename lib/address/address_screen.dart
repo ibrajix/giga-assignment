@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../constants/colors.dart';
+
 class AddressScreen extends StatefulWidget {
   const AddressScreen({super.key});
 
@@ -12,7 +14,16 @@ class _AddressScreenState extends State<AddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text("address"),
+          toolbarHeight: 80,
+          centerTitle: true,
+          backgroundColor: AppColors.gigaPurple,
+          title: Text("jdhd"),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
         ),
         body: Column()
     );

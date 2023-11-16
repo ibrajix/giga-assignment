@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterassignment/constants/destinations.dart';
+import 'package:flutterassignment/constants/images.dart';
+import 'package:flutterassignment/widgets/giga_app_bar.dart';
+import 'package:flutterassignment/widgets/giga_button.dart';
 import 'package:go_router/go_router.dart';
 
 import '../address/address_screen.dart';
@@ -16,34 +19,45 @@ class _HomePageState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        centerTitle: true,
-        backgroundColor: AppColors.gigaPurple,
-        title: Text("jdhd"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            ElevatedButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.all(16.0),
-                textStyle: const TextStyle(fontSize: 20),
-                backgroundColor: Colors.blue,
-                elevation: 5,
-              ),
-              onPressed: () {
-                context.push(Destination.addAddress);
-              },
-              child: const Text('Add address', style: TextStyle(color: Colors.white)),
+      backgroundColor: AppColors.gigaPurple,
+      body: SafeArea(
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            Image.asset(
+              Images.homeBg,
+              fit: BoxFit.cover,
+            ),
+            Container(
+              padding: const EdgeInsets.only(left: 20),
+              child:
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      Images.locationPin,
+                      height: 100,
+                      width: 100,
+                    ),
+                    const SizedBox(height: 10),
+                    const Text(
+                      'We Need Your Address \nTo Get started',
+                      style: TextStyle(
+                        color:  AppColors.gigaWhite,
+                        fontWeight: FontWeight.w600,
+                        fontSize: 20
+                      ),
+                    ),
+                    const SizedBox(height: 30),
+                    GigaButton(
+                      text: "Add Address",
+                      onPressed: (){
+                        context.push(Destination.addAddress);
+                      }
+                    )
+                  ],
+                )
             ),
           ],
         ),
