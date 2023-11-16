@@ -1,8 +1,12 @@
 
+import 'dart:math';
+
 import 'package:country_picker/country_picker.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutterassignment/constants/images.dart';
+import 'package:flutterassignment/model/address_model.dart';
 import 'package:flutterassignment/utils/utility.dart';
 import 'package:flutterassignment/widgets/giga_app_bar.dart';
 import 'package:flutterassignment/widgets/giga_button.dart';
@@ -146,7 +150,18 @@ class _AddressScreenState extends State<AddressScreen> with FormMixin {
                   width: MediaQuery.of(context).size.width,
                   backgroundColor: AppColors.gigaPurple,
                     onPressed: () => validate(() {
-                       //save as object
+                      //save as object
+                      var streetAddressFormat = "${_subAreaController.text} - ${_blockController.text} - ${_houseController.text}";
+                      var address = Address(
+                        country: _countryController.text,
+                        prefecture: _prefectureController.text,
+                        municipality: _municipalityController.text,
+                        streetAddress: streetAddressFormat,
+                        apartment: _apartmentController.text
+                      );
+                      if (kDebugMode) {
+                        print(address.toString());
+                      }
                     }),
                     text: 'Save'
                 ),
