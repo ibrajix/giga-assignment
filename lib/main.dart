@@ -1,77 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutterassignment/address/address_screen.dart';
 import 'package:flutterassignment/constants/colors.dart';
+import 'package:flutterassignment/theme/app_theme.dart';
+
+import 'navigation/routes.dart';
 
 void main() {
-  runApp(const MyApp());
+  const SystemUiOverlayStyle(
+    statusBarColor: Colors.transparent,
+    statusBarIconBrightness: Brightness.dark,
+    statusBarBrightness: Brightness.light,
+  );
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+  final router = Navigation().router;
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(title: 'Flutter Gigabank assignment'),
-    );
-  }
-}
-
-class HomePage extends StatefulWidget {
-  const HomePage({super.key, required this.title});
-
-  final String title;
-
-  @override
-  State<HomePage> createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-
-  _navigateToAddAddressScreen() {
-      Navigator.of(context).push(
-        MaterialPageRoute(
-          builder: (context) => const AddressScreen(title: "Address screen"),
-        ),
-      );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        toolbarHeight: 80,
-        centerTitle: true,
-        backgroundColor: AppColors.gigaPurple,
-        title: Text(widget.title),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-      ),
-      body: Container(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          children: <Widget>[
-            ElevatedButton(
-              style: TextButton.styleFrom(
-                foregroundColor: Colors.white,
-                padding: const EdgeInsets.all(16.0),
-                textStyle: const TextStyle(fontSize: 20),
-                backgroundColor: Colors.blue,
-                elevation: 5,
-              ),
-              onPressed: _navigateToAddAddressScreen,
-              child: const Text('Add address', style: TextStyle(color: Colors.white)),
-            ),
-          ],
-        ),
-      ),
+    return MaterialApp.router(
+        debugShowCheckedModeBanner: false,
+        routeInformationParser: router.routeInformationParser,
+        routerDelegate: router.routerDelegate,
+        routeInformationProvider: router.routeInformationProvider,
+        theme: lightThemeData
     );
   }
 }

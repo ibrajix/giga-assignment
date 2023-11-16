@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AddressScreen extends StatefulWidget {
-  const AddressScreen({super.key, required this.title});
-
-  final String title;
+  const AddressScreen({super.key});
 
   @override
   State<StatefulWidget> createState() => _AddressScreenState();
@@ -14,7 +12,7 @@ class _AddressScreenState extends State<AddressScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Text("address"),
         ),
         body: Column()
     );
