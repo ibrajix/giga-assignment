@@ -1,33 +1,9 @@
 # 📱 Gigabank flutter assignment
 
-This is the repository for the flutter coding assignment for [gigabank](https://gigabank.jp). On this assignment you'll be called to implement an address lookup form as in the following screenshot.  
+<p>
+    <img src="https://github.com/ibrajix/OuPassAuth/assets/39574228/9c6086d1-d57c-4047-9353-bd8460c614e5" width="200px" hspace="10"/>
+    <img src="https://github.com/ibrajix/OuPassAuth/assets/39574228/05099ed0-8711-48cd-b160-845a7732313f" width="200px" hspace="10"/>
+    <img src="https://github.com/ibrajix/OuPassAuth/assets/39574228/2ff0643d-5d4b-4c24-b3a4-a87e848af559" width="200px" hspace="10"/>
+    <img src="https://github.com/ibrajix/OuPassAuth/assets/39574228/3feee5c9-204d-4362-88c7-f56bdbcce5dd" width="200px" hspace="10"/>
+</p>
 
-![screenshot.png](screenshot.png)
-
-Ideally, the assignment should NOT take more than 4 hours. Anything that you think can be left out, add a `//TODO` on the comments and say what you would have implemented, had you had the time. 
-
-## ☑️ Acceptance criteria
-
-- Implement the code in the address screen, in order to retrieve the user address
-- Store user address in an object
-- Follow the design of the screenshot  
-- Implement validations for the fields e.g. for street address the `subarea-block-house` format is expected
-- (optional, but we'll be impressed!) The country dropdown should show all the possible countries in the world with their flags and autocomplete the user's choice
-
-## 📦 Deliverable
-
-Once you finish the assignment, create a .zip file with the finalised code and send it to us via email. Add a NOTES.txt file in the zip with any notes that you might want to add. Feel free to add the `.git` folder, so we can check your commit history.
-
-## 📙 Git Commit Message Guide
-
-- `feat`: A new feature
-- `fix`: A bug fix
-- `docs`: Changes to documentation
-- `style`: Formatting, missing semi colons, etc; no code change
-- `refactor`: Refactoring production code
-- `test`: Adding tests, refactoring test; no production code change
-- `chore`: Updating build tasks, package manager configs, etc; no production code change
-
-## 🔪  Feedback
-
-We're not perfect and we know. Please let us know if we made any mistakes, typos or any feedback for this assignment, so we can improve. 
